@@ -195,22 +195,22 @@ def main():
     appenDataAndSr()
     listaLimpia()
 
-    for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
-        audioLen(losAudios, datos, senales)
-    print("La duracion de los audios es: ")
-    print(audiosLen)
+    # for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
+    #     audioLen(losAudios, datos, senales)
+    # print("La duracion de los audios es: ")
+    # print(audiosLen)
 
-    for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
-        saveWaveplots(losAudios, datos, senales)
-    print("Waveplots generados")
-    print("Generando Espectrogramas")
-    for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
-        saveSpectrograms(losAudios, datos, senales)
-    print("Espectrogramas generados")
-    print("Generando Espectrogramas tipo mel")
-    for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
-        melSpectrograms(losAudios, datos, senales)
-    print("Espectrogramas tipo mel generados")
+    # for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
+    #     saveWaveplots(losAudios, datos, senales)
+    # print("Waveplots generados")
+    # print("Generando Espectrogramas")
+    # for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
+    #     saveSpectrograms(losAudios, datos, senales)
+    # print("Espectrogramas generados")
+    # print("Generando Espectrogramas tipo mel")
+    # for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
+    #     melSpectrograms(losAudios, datos, senales)
+    # print("Espectrogramas tipo mel generados")
 
     print("Generando CSV ...")
 
@@ -232,22 +232,3 @@ if __name__ == "__main__":
     main()
 
 
-# ================================== CÓDIGO AUXILIAR ===========================
-
-# ================================== WAVEPLOTS DE MÚLTIPLES AUDIOS, SIMULTÁNEAMENTE ===========================
-
-# piano_signals = [
-#     librosa.load(p.absolute())[0] for p in Path('.').glob('Audios/furelise_*.wav')
-# ]
-
-# cuantosAudios = len(piano_signals)
-# print("Hay: ",cuantosAudios, " audios")
-
-
-# plt.figure(figsize=(15, 6))
-# for i, x in enumerate(piano_signals):
-#     plt.subplot(2, 2, i+1)
-#     librosa.display.waveplot(x[:1000000])
-
-
-# plt.show()

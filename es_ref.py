@@ -51,20 +51,20 @@ kmeans_kwargs = {
 
 
 sse = []
-for k in range(1, 11):
+for k in range(1, 30):
     kmeans = KMeans(n_clusters=k, **kmeans_kwargs)
     kmeans.fit(scaled_features)
     sse.append(kmeans.inertia_)
 
 plt.style.use("fivethirtyeight")
-plt.plot(range(1, 11), sse)
-plt.xticks(range(1, 11))
+plt.plot(range(1, 30), sse)
+plt.xticks(range(1, 30))
 plt.xlabel("Number of Clusters")
 plt.ylabel("SSE")
 plt.show()
 
 kl = KneeLocator(
-    range(1, 11), sse, curve="convex", direction="decreasing"
+    range(1, 30), sse, curve="convex", direction="decreasing"
 )
 
 print(kl.elbow)
@@ -72,15 +72,15 @@ print(kl.elbow)
 silhouette_coefficients = []
 
 
-for k in range(2, 11):
+for k in range(2, 30):
     kmeans = KMeans(n_clusters=k, **kmeans_kwargs)
     kmeans.fit(scaled_features)
     score = silhouette_score(scaled_features, kmeans.labels_)
     silhouette_coefficients.append(score)
 
 plt.style.use("fivethirtyeight")
-plt.plot(range(2, 11), silhouette_coefficients)
-plt.xticks(range(2, 11))
+plt.plot(range(2, 30), silhouette_coefficients)
+plt.xticks(range(2, 30))
 plt.xlabel("Number of Clusters")
 plt.ylabel("Silhouette Coefficient")
 plt.show()
