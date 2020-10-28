@@ -1,7 +1,0 @@
-=IF(ISNUMBER(SEARCH("pia",A2:A4317)),"piano",
-IF(ISNUMBER(SEARCH("voi",A2:A4317)),"voice",
-IF(ISNUMBER(SEARCH("cel",A2:A4317)),"cello",
-IF(ISNUMBER(SEARCH("gel",A2:A4317)),"electric_guitar",
-IF(ISNUMBER(SEARCH("gac",A2:A4317)),"guitar",
-IF(ISNUMBER(SEARCH("flu",A2:A4317)),"flute",
-IF(ISNUMBER(SEARCH("vio",A2:A4317)),"violin")))))))
