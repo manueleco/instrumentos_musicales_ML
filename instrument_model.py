@@ -44,7 +44,7 @@ feVoi = list(data_dir.glob('voi/*'))
 # refPic5 = PIL.Image.open(str(feAceptables[0]))
 # refPic5.show()
 
-batch_size = 100
+batch_size = 32
 img_height = 180
 img_width = 180
 
@@ -130,7 +130,7 @@ cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=1)
 
 # ======= ENTRENAMIENTO ===========
-epochs=30
+epochs=10
 history = model.fit(
   train_ds,
   validation_data=val_ds,
