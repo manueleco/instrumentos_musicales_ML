@@ -37,7 +37,7 @@ audiosLen = []
 
 posDatas = []
 
-noDir = 'Audios/'
+noDir = 'Audio_res/'
 
 # os.chdir("Audios")
 
