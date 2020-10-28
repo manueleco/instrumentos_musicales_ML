@@ -130,7 +130,7 @@ cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=1)
 
 # ======= ENTRENAMIENTO ===========
-epochs=40
+epochs=30
 history = model.fit(
   train_ds,
   validation_data=val_ds,
