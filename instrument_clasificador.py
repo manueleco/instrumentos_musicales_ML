@@ -11,28 +11,36 @@ from tensorflow.keras.models import Sequential
 import pathlib
 
 
-data_dir = pathlib.Path('Espectrogramas')
+data_dir = pathlib.Path('Entrenamiento')
 
 image_count = len(list(data_dir.glob('*/*.png')))
 print(image_count)
 
-feBuenas = list(data_dir.glob('Buenas/*'))
+feCel = list(data_dir.glob('Cel/*'))
 # refPic1 = PIL.Image.open(str(feBuenas[0]))
 # refPic1.show()
 
-feExcelentes = list(data_dir.glob('Excelentes/*'))
+feFlu = list(data_dir.glob('flu/*'))
 # refPic2 = PIL.Image.open(str(feExcelentes[0]))
 # refPic2.show()
 
-feMalas = list(data_dir.glob('Malas/*'))
+feGac = list(data_dir.glob('gac/*'))
 # refPic3 = PIL.Image.open(str(feMalas[0]))
 # refPic3.show()
 
-feProfesionales = list(data_dir.glob('Profesionales/*'))
+feGel = list(data_dir.glob('gel/*'))
 # refPic4 = PIL.Image.open(str(feProfesionales[0]))
 # refPic4.show()
 
-feAceptables = list(data_dir.glob('Aceptables/*'))
+fePia = list(data_dir.glob('pia/*'))
+# refPic5 = PIL.Image.open(str(feAceptables[0]))
+# refPic5.show()
+
+feVio = list(data_dir.glob('vio/*'))
+# refPic5 = PIL.Image.open(str(feAceptables[0]))
+# refPic5.show()
+
+feVoi = list(data_dir.glob('voi/*'))
 # refPic5 = PIL.Image.open(str(feAceptables[0]))
 # refPic5.show()
 
@@ -92,7 +100,7 @@ print(np.min(first_image), np.max(first_image))
 
 
 # ========= MODELO =======
-num_classes = 5
+num_classes = 7
 
 model = Sequential([
   layers.experimental.preprocessing.Rescaling(1./255, input_shape=(img_height, img_width, 3)),
@@ -229,19 +237,21 @@ plt.show()
 
 model.save('Training/Modelo')
 
-data_dir_pruebas = pathlib.Path('Images/Tests/output38.png')
+# ================= TESTING ==================
 
-img = keras.preprocessing.image.load_img(
-    data_dir_pruebas, target_size=(img_height, img_width)
-)
-img_array = keras.preprocessing.image.img_to_array(img)
-img_array = tf.expand_dims(img_array, 0) # Create a batch
+# data_dir_pruebas = pathlib.Path('Images/Tests/output38.png')
 
-predictions = model.predict(img_array)
-score = tf.nn.softmax(predictions[0])
+# img = keras.preprocessing.image.load_img(
+#     data_dir_pruebas, target_size=(img_height, img_width)
+# )
+# img_array = keras.preprocessing.image.img_to_array(img)
+# img_array = tf.expand_dims(img_array, 0) # Create a batch
 
-print(
-    "Este audio es de la categoría {} con un {:.2f} porcentaje de confianza."
-    .format(class_names[np.argmax(score)], 100 * np.max(score))
-)
+# predictions = model.predict(img_array)
+# score = tf.nn.softmax(predictions[0])
+
+# print(
+#     "Este audio es de la categoría {} con un {:.2f} porcentaje de confianza."
+#     .format(class_names[np.argmax(score)], 100 * np.max(score))
+# )
 
