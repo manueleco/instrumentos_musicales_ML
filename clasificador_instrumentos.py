@@ -64,7 +64,7 @@ def recordAudio(recNum):
     print(recNum)
     file_number = int(recNum)+1
     fs = 44100  # Sample rate
-    seconds = 15  # Duracion de la grabacion
+    seconds = 7  # Duracion de la grabacion
 
     grabacion = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
     print("Antes de grabar el audio asegurese de no hacer ruido antes y despues de grabar.")
