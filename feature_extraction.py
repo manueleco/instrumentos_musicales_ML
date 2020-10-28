@@ -43,7 +43,7 @@ noDir = 'Audios/'
 
 
 def audioDatabase():
-    for file in glob.glob("Audios/*.wav"):
+    for file in glob.glob("Audio_res/*.wav"):
         audios.append(file)
         # print(file)
 
@@ -163,7 +163,7 @@ def melSpectrograms(audioName, theData, theSr):
         DB, sr=theSr, hop_length=hop_length, x_axis='time', y_axis='log')
     # plt.colorbar(format='%+2.0f dB')
     # plt.show()
-    filename2 = 'Images/Mel_Spectrograms/y_axis_mel/' + str(audioName) + '.png'
+    filename2 = 'Espectrogramas/' + str(audioName) + '.png'
     plt.savefig(filename2)
     plt.clf()
 
@@ -207,10 +207,10 @@ def main():
     # for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
     #     saveSpectrograms(losAudios, datos, senales)
     # print("Espectrogramas generados")
-    # print("Generando Espectrogramas tipo mel")
-    # for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
-    #     melSpectrograms(losAudios, datos, senales)
-    # print("Espectrogramas tipo mel generados")
+    print("Generando Espectrogramas tipo mel")
+    for losAudios, datos, senales in zip(listaAudios, posDatas, srs):
+        melSpectrograms(losAudios, datos, senales)
+    print("Espectrogramas tipo mel generados")
 
     print("Generando CSV ...")
 
